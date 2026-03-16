@@ -126,8 +126,8 @@ export const translations = {
     'contact.yourMessage': 'Your Message',
     'contact.sendMessage': 'Send Message',
     'contact.emailAddress': 'hello@homecare-harmony.in',
-    'contact.phoneNumber': '+91 (98) 7654-3210',
-    'contact.locationAddress': 'Bangalore, Karnataka, India',
+    'contact.phoneNumber': '+91 9842730330',
+    'contact.locationAddress': '10, 8PV2+CWR, Raja Complex, Nasiyanur Rd, Narayanavalasu, Erode, Tamil Nadu 638011',
     'contact.success': 'Message sent! We\'ll get back to you soon. 🌿',
     
     // Newsletter
@@ -165,7 +165,7 @@ export const translations = {
     'footer.cat_floor': 'Floor Cleaning',
     'footer.cat_laundry': 'Laundry Care',
     'footer.contactUs': 'Contact Us',
-    'footer.location': 'Bangalore, Karnataka, India',
+    'footer.location': '10, 8PV2+CWR, Raja Complex, Nasiyanur Rd, Narayanavalasu, Erode, Tamil Nadu 638011',
     'footer.copyright': '© 2026 Home Care Harmony. All rights reserved. 🌱 Made for India.',
   },
   ta: {
@@ -293,8 +293,8 @@ export const translations = {
     'contact.yourMessage': 'உங்கள் বার்த்தை',
     'contact.sendMessage': 'செய்தி அனுப்பவும்',
     'contact.emailAddress': 'hello@homecare-harmony.in',
-    'contact.phoneNumber': '+91 (98) 7654-3210',
-    'contact.locationAddress': 'பெங்களூர், கர்நாடக, இந்தியா',
+    'contact.phoneNumber': '+91 9842730330',
+    'contact.locationAddress': '10, 8PV2+CWR, Raja Complex, Nasiyanur Rd, Narayanavalasu, Erode, Tamil Nadu 638011',
     'contact.success': 'செய்தி அனுப்பப்பட்டது! நாங்கள் விரைவில் உங்களுடன் தொடர்பு கொள்வோம். 🌿',
     
     // Newsletter
@@ -331,7 +331,7 @@ export const translations = {
     'footer.cat_floor': 'தரை சுத்தம்',
     'footer.cat_laundry': 'பணிமுதல் கவனிப்பு',
     'footer.contactUs': 'எங்களிடம் தொடர்பு கொள்ளவும்',
-    'footer.location': 'பெங்களூர், கர்நாடக, இந்தியா',
+    'footer.location': '10, 8PV2+CWR, Raja Complex, Nasiyanur Rd, Narayanavalasu, Erode, Tamil Nadu 638011',
     'footer.copyright': '© 2026 Home Care Harmony. அனைத்து உரிமைகள் பாதுகாக்கப்பட்டுள்ளன। 🌱 இந்தியாவுக்கு தயாரிக்கப்பட்டது।',
   },
   hi: {
@@ -460,8 +460,8 @@ export const translations = {
     'contact.yourMessage': 'आपका संदेश',
     'contact.sendMessage': 'संदेश भेजें',
     'contact.emailAddress': 'hello@homecare-harmony.in',
-    'contact.phoneNumber': '+91 (98) 7654-3210',
-    'contact.locationAddress': 'बैंगलोर, कर्नाटक, भारत',
+    'contact.phoneNumber': '+91 9842730330',
+    'contact.locationAddress': '10, 8PV2+CWR, Raja Complex, Nasiyanur Rd, Narayanavalasu, Erode, Tamil Nadu 638011',
     'contact.success': 'संदेश भेज दिया गया! हम जल्द ही आपसे संपर्क करेंगे। 🌿',
     
     // Newsletter
@@ -499,7 +499,7 @@ export const translations = {
     'footer.cat_floor': 'फर्श सफाई',
     'footer.cat_laundry': 'कपड़ा देखभाल',
     'footer.contactUs': 'हमसे संपर्क करें',
-    'footer.location': 'बैंगलोर, कर्नाटक, भारत',
+    'footer.location': '10, 8PV2+CWR, Raja Complex, Nasiyanur Rd, Narayanavalasu, Erode, Tamil Nadu 638011',
     'footer.copyright': '© 2026 Home Care Harmony. सभी अधिकार आरक्षित। 🌱 भारत के लिए बनाया गया।',
   }
 } as const;

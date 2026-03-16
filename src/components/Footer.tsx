@@ -57,7 +57,7 @@ const Footer = () => {
             <h4 className="font-display text-base font-semibold mb-4">{t('footer.contactUs')}</h4>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> hello@homecare-harmony.in</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> +91 (98) 7654-3210</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> +91 9842730330</li>
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5" /> {t('footer.location')}</li>
             </ul>
           </div>

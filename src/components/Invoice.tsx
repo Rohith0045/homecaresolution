@@ -29,8 +29,8 @@ const Invoice: React.FC<InvoiceProps> = ({ order }) => {
             </div>
             <h2 className="text-xl font-display font-bold text-forest -webkit-print-color-adjust">Home Care Harmony</h2>
           </div>
-          <p className="text-sm text-gray-600">123 Eco-Friendly Lane</p>
-          <p className="text-sm text-gray-600">Green City, Earth 10001</p>
+          <p className="text-sm text-gray-600">10, 8PV2+CWR, Raja Complex, Nasiyanur Rd</p>
+          <p className="text-sm text-gray-600">Narayanavalasu, Erode, Tamil Nadu 638011</p>
           <p className="text-sm text-gray-600">contact@homecareharmony.com</p>
         </div>
       </div>

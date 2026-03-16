@@ -2,7 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import HeroBannerCarousel from "@/components/HeroBannerCarousel";
 import CategoryGrid from "@/components/CategoryGrid";
 import ProductCarousel from "@/components/ProductCarousel";
-import Testimonials from "@/components/Testimonials";
+import CompanyMap from "@/components/CompanyMap";
 import Newsletter from "@/components/Newsletter";
 import SustainabilitySection from "@/components/SustainabilitySection";
 import Header from "@/components/Header";
@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { Award, Truck, RotateCcw, Headphones } from "lucide-react";
 
 const trustBadges = [
-  { icon: Truck, label: "Free Shipping Over $35" },
+  { icon: Truck, label: "Free Shipping Over ₹1500" },
   { icon: RotateCcw, label: "30-Day Returns" },
   { icon: Award, label: "Eco Certified" },
   { icon: Headphones, label: "24/7 Support" },
@@ -62,7 +62,7 @@ const Index = () => {
         subtitle="See what's popular in eco-friendly cleaning right now."
       />
 
-      <Testimonials />
+      <CompanyMap />
       <Newsletter />
       <Footer />
     </div>
