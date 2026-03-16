@@ -138,12 +138,21 @@ const Checkout = () => {
     setProcessingPayment(true);
 
     const createRazorpayOrder = async () => {
-      const { data, error } = await supabase.functions.invoke('create-razorpay-order', {
-        body: { amount: Math.round(finalTotal * 100), currency: 'INR' }
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-razorpay-order`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify({ amount: Math.round(finalTotal * 100), currency: 'INR' })
       });
 
-      if (error) throw new Error(error.message || "Failed to create payment order");
-      if (data.error) throw new Error(data.error);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || data.message || "Failed to create payment order");
+      }
 
       return data;
     };
