@@ -138,14 +138,18 @@ const Checkout = () => {
     setProcessingPayment(true);
 
     const createRazorpayOrder = async () => {
-      const { data, error } = await supabase.functions.invoke('create-razorpay-order', {
-        body: { amount: finalTotal, currency: 'INR' }
+      const response = await fetch('/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: Math.round(finalTotal * 100), currency: 'INR' })
       });
 
-      if (error) throw new Error(error.message || "Failed to create payment order");
-      if (data.error) throw new Error(data.error);
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.details || errData.error || "Failed to create payment order");
+      }
 
-      return data;
+      return await response.json();
     };
 
     // 1. Common Handler: Create the Order first in 'pending' status
@@ -206,15 +210,19 @@ const Checkout = () => {
         try {
           setPaymentTimer(null); // Stop timer
 
-          const { data: verifyData, error: verifyError } = await supabase.functions.invoke('verify-razorpay-payment', {
-            body: {
+          const verifyResponse = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature
-            }
+            })
           });
 
-          if (verifyError || !verifyData?.verified) throw new Error(verifyError?.message || 'Verification failed');
+          const verifyData = await verifyResponse.json();
+
+          if (!verifyResponse.ok || !verifyData?.ok) throw new Error(verifyData?.message || 'Verification failed');
 
           await supabase.from('orders').update({ 
             status: 'completed',
