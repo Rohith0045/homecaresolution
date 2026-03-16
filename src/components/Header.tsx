@@ -29,11 +29,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
-            <Leaf className="w-5 h-5 text-primary-foreground" />
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl glass rounded-2xl shadow-elevated transition-all duration-300">
+      <div className="container mx-auto px-6 flex items-center justify-between h-16 md:h-16">
+        <Link to="/" className="flex items-center gap-2 flex-shrink-0 group">
+          <div className="w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
+            <img src="/logo.svg" alt="Logo" className="w-full h-full object-contain" />
           </div>
           <span className="font-display text-lg md:text-xl font-bold text-foreground hidden xs:inline">
             Home Care <span className="text-primary">Harmony</span>

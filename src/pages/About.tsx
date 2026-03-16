@@ -18,7 +18,8 @@ const About = () => {
     <div className="min-h-screen">
       <Header />
 
-      <section className="py-20 bg-secondary">
+      <section className="pt-28 pb-20 bg-gradient-to-b from-background to-secondary/30 relative overflow-hidden">
+        <div className="absolute inset-0 glow-mesh opacity-20 mix-blend-overlay" />
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mx-auto text-center">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">{t('about.mission')}</h1>
@@ -39,9 +40,9 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-6"
+                className="text-center p-6 glass glowing-card rounded-2xl border border-border/20 group"
               >
-                <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110">
                   <v.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-foreground mb-2">{t(v.titleKey)}</h3>

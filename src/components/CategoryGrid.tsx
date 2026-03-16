@@ -68,7 +68,7 @@ const CategoryGrid = () => {
             >
               <Link
                 to={`/products?category=${cat.id}`}
-                className="group block bg-gradient-to-br from-card to-card/50 border border-border rounded-2xl p-6 text-center hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative overflow-hidden"
+                className="group block glass glowing-card rounded-2xl p-6 text-center border-border/40 transition-all duration-500 relative overflow-hidden"
               >
                 {/* Animated Background Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

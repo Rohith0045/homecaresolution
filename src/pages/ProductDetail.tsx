@@ -58,7 +58,7 @@ const ProductDetail = () => {
       <Header />
 
       {/* Breadcrumb */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 pt-24 pb-4">
         <div className="flex items-center gap-1 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-primary">{t('product.home')}</Link>
           <ChevronRight className="w-3 h-3" />
@@ -72,7 +72,7 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Images */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-            <div className="aspect-square rounded-xl overflow-hidden bg-secondary mb-4">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-secondary/30 glass border border-border/20 mb-4 shadow-elevated">
               <img
                 src={product.images[activeImage] || product.image}
                 alt={product.name}
@@ -159,7 +159,7 @@ const ProductDetail = () => {
                 { icon: Shield, label: t('product.ecoCertified') },
                 { icon: Leaf, label: t('product.natural') },
               ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex flex-col items-center gap-1 py-3 bg-secondary rounded-lg">
+                <div key={label} className="flex flex-col items-center gap-1 py-3 glass rounded-xl border border-border/20 transition-transform hover:scale-105">
                   <Icon className="w-4 h-4 text-primary" />
                   <span className="text-xs font-medium text-foreground">{label}</span>
                 </div>

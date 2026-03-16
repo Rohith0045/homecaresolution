@@ -19,7 +19,8 @@ const Contact = () => {
     <div className="min-h-screen">
       <Header />
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 pt-28 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 glow-mesh opacity-15 pointer-events-none" />
         <div className="max-w-4xl mx-auto">
           <h1 className="font-display text-4xl font-bold text-foreground mb-3 text-center">{t('contact.title')}</h1>
           <p className="text-muted-foreground text-center mb-12">{t('contact.subtitle')}</p>
@@ -53,7 +54,7 @@ const Contact = () => {
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
                 maxLength={100}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground text-sm"
+                className="w-full px-4 py-3 rounded-xl border border-border/40 glass text-foreground text-sm shadow-sm"
               />
               <input
                 type="email"
@@ -62,7 +63,7 @@ const Contact = () => {
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 required
                 maxLength={255}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground text-sm"
+                className="w-full px-4 py-3 rounded-xl border border-border/40 glass text-foreground text-sm shadow-sm"
               />
               <textarea
                 placeholder={t('contact.yourMessage')}
@@ -71,7 +72,7 @@ const Contact = () => {
                 required
                 maxLength={1000}
                 rows={5}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-card text-foreground text-sm resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-border/40 glass text-foreground text-sm resize-none shadow-sm"
               />
               <button
                 type="submit"

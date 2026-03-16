@@ -18,6 +18,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img src={heroImage} alt="Clean kitchen" className="w-full h-full object-cover" />
         <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 glow-mesh opacity-30 mix-blend-overlay" />
       </div>
 
       <div className="relative container mx-auto px-4 py-24 md:py-36 lg:py-44">
@@ -54,10 +55,14 @@ const HeroSection = () => {
 
           <div className="flex flex-wrap gap-4">
             {features.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2 bg-primary-foreground/15 backdrop-blur-sm rounded-full px-4 py-2">
+              <motion.div 
+                key={label} 
+                className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 hover:bg-primary-foreground/20 transition-all cursor-default"
+                whileHover={{ scale: 1.05, y: -2 }}
+              >
                 <Icon className="w-4 h-4 text-primary-foreground" />
                 <span className="text-primary-foreground text-sm font-medium">{label}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>

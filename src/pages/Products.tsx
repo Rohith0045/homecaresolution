@@ -76,12 +76,13 @@ const Products = () => {
     <div className="min-h-screen">
       <Header />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-28 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 glow-mesh opacity-15 pointer-events-none" />
         <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{t('products.title')}</h1>
         <p className="text-muted-foreground mb-8">{t('products.subtitle')}</p>
 
         {/* Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        <div className="flex flex-col md:flex-row gap-4 mb-8 glass p-4 rounded-2xl border border-border/30 shadow-md">
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSearchParams({})}

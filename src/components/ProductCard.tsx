@@ -40,7 +40,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       transition={{ duration: 0.4 }}
     >
       <Link to={`/product/${product.id}`} className="group block">
-        <div className="bg-card rounded-lg border border-border overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300">
+        <div className="glass glowing-card rounded-2xl overflow-hidden border border-border/40 shadow-card flex flex-col h-full transform transition-all duration-500">
           <div className="relative aspect-square overflow-hidden bg-secondary">
             <img
               src={product.image || 'https://via.placeholder.com/600x600?text=Product'}

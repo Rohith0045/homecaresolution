@@ -7,7 +7,8 @@ const Testimonials = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-gradient-to-b from-background to-secondary/30 relative overflow-hidden">
+      <div className="absolute inset-0 glow-mesh opacity-15 mix-blend-overlay" />
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">{t('testimonials.title')}</h2>
@@ -22,7 +23,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card rounded-xl p-6 border border-border shadow-card"
+              className="glass glowing-card rounded-2xl p-6 border border-border/40 shadow-card"
             >
               <Quote className="w-8 h-8 text-primary/30 mb-4" />
               <p className="text-foreground text-sm leading-relaxed mb-4">{t.content}</p>
