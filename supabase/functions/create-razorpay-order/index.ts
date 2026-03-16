@@ -1,68 +1,65 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 
-// Configure CORS headers to allow requests from the React frontend
+// Setup CORS headers
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-}
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
 
 serve(async (req) => {
-  // Handle CORS preflight requests
-  if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { headers: corsHeaders });
   }
 
   try {
-    // Expected to receive { amount: number, currency?: string }
-    const { amount, currency = 'INR' } = await req.json()
+    const { amount, currency = "INR", receipt } = await req.json();
 
-    if (!amount) {
-      return new Response(
-        JSON.stringify({ error: 'Amount is required' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      )
+    if (!amount || isNaN(amount) || amount <= 0) {
+      return new Response(JSON.stringify({ error: "Invalid amount provided" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
+      });
     }
 
-    const keyId = Deno.env.get('RAZORPAY_KEY_ID')
-    const keySecret = Deno.env.get('RAZORPAY_KEY_SECRET')
+    const key_id = Deno.env.get("RAZORPAY_KEY_ID");
+    const key_secret = Deno.env.get("RAZORPAY_KEY_SECRET");
 
-    if (!keyId || !keySecret) {
-       throw new Error("Razorpay credentials are not set in the environment variables.")
+    if (!key_id || !key_secret) {
+      return new Response(JSON.stringify({ error: "API keys missing in Supabase Vault" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
+      });
     }
 
-    // Call Razorpay API to create an order
-    // Razorpay expects `amount` in paisa (if INR) so `amount * 100` must be handled
-    // Wait, let's assume the frontend sends the amount in rupees, so we multiply by 100 here.
-    const amountInPaisa = Math.round(amount * 100)
-
-    const razorpayResponse = await fetch('https://api.razorpay.com/v1/orders', {
-      method: 'POST',
+    const auth = btoa(`${key_id}:${key_secret}`);
+    const rzpResponse = await fetch("https://api.razorpay.com/v1/orders", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        // Basic Auth using Key ID and Key Secret
-        'Authorization': `Basic ${btoa(`${keyId}:${keySecret}`)}`
+        "Authorization": `Basic ${auth}`,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        amount: amountInPaisa,
+        amount: Math.round(amount),
         currency,
-        receipt: `receipt_${Date.now()}`,
-      }),
-    })
+        receipt
+      })
+    });
 
-    const orderData = await razorpayResponse.json()
+    const order = await rzpResponse.json();
 
-    if (!razorpayResponse.ok) {
-       throw new Error(orderData.error?.description || 'Failed to create Razorpay order')
+    if (!rzpResponse.ok) {
+      throw new Error(order.error?.description || "Failed to create order on Razorpay");
     }
 
-    return new Response(
-      JSON.stringify(orderData),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    )
+    return new Response(JSON.stringify(order), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
+
   } catch (error) {
-    return new Response(
-      JSON.stringify({ error: error.message }),
-      { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    )
+    return new Response(JSON.stringify({ error: error.message || "Failed to create order" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
   }
-})
+});
