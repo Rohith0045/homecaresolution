@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 20% 98%;
+    --foreground: 150 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 12%;
+
+    --primary: 152 55% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 140 25% 94%;
+    --secondary-foreground: 150 30% 18%;
+
+    --muted: 130 15% 95%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 85 50% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 140 15% 89%;
+    --input: 140 15% 89%;
+    --ring: 152 55% 32%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 140 20% 97%;
+    --sidebar-foreground: 150 20% 20%;
+    --sidebar-primary: 152 55% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 93%;
+    --sidebar-accent-foreground: 150 20% 20%;
+    --sidebar-border: 140 15% 89%;
+    --sidebar-ring: 152 55% 32%;
+
+    /* Custom tokens */
+    --sage: 140 20% 85%;
+    --forest: 152 60% 22%;
+    --leaf: 120 40% 55%;
+    --cream: 45 30% 96%;
+    --warm: 30 20% 50%;
+    --gradient-hero: linear-gradient(135deg, hsl(152 55% 32% / 0.9), hsl(120 40% 45% / 0.85));
+    --gradient-accent: linear-gradient(135deg, hsl(85 50% 48%), hsl(152 55% 32%));
+    --shadow-card: 0 4px 24px -4px hsl(152 55% 32% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(152 55% 32% / 0.15);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 150 20% 6%;
+    --foreground: 120 15% 92%;
+    --card: 150 20% 9%;
+    --card-foreground: 120 15% 92%;
+    --popover: 150 20% 9%;
+    --popover-foreground: 120 15% 92%;
+    --primary: 152 50% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 15% 15%;
+    --secondary-foreground: 120 15% 92%;
+    --muted: 150 15% 15%;
+    --muted-foreground: 130 10% 55%;
+    --accent: 85 45% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 150 15% 18%;
+    --input: 150 15% 18%;
+    --ring: 152 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@media print {
+  /* Hide unnecessary elements */
+  header, footer, nav, .no-print, button {
+    display: none !important;
+  }
+  
+  /* Reset backgrounds for clean printing */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Ensure the printed container takes full width/height without scrollbars */
+  .print-only {
+    display: block !important;
+  }
+  
+  /* Remove Box Shadows and borders that don't look good on paper */
+  * {
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Break pages correctly */
+  pre, blockquote, tr {
+    page-break-inside: avoid;
+  }
+}
