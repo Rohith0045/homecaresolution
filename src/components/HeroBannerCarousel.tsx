@@ -6,6 +6,20 @@ import { products } from "@/data/products";
 const HeroBannerCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setVisibleCount(1);
+      else if (window.innerWidth < 768) setVisibleCount(2);
+      else if (window.innerWidth < 1024) setVisibleCount(3);
+      else if (window.innerWidth < 1280) setVisibleCount(4);
+      else setVisibleCount(5);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (!autoPlay) return;
@@ -26,7 +40,6 @@ const HeroBannerCarousel = () => {
   };
 
   const getVisibleProducts = () => {
-    const visibleCount = 5;
     const items = [];
     for (let i = 0; i < visibleCount; i++) {
       items.push(products[(currentIndex + i) % products.length]);

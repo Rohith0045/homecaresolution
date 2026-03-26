@@ -1,28 +1,65 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <!-- Document title and metadata -->
-    <title>Home Care Harmony</title>
-    <meta name="description" content="Home Care products crafted for India — sustainable, affordable, reliable." />
-    <meta name="author" content="Home Care Harmony" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Home Care Harmony" />
-    <meta property="og:description" content="Home Care products crafted for India — sustainable, affordable, reliable." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/india-og.svg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <!-- Document title and metadata -->
+  <title>Home Care Harmony</title>
+  <meta name="description" content="Home Care products crafted for India — sustainable, affordable, reliable." />
+  <meta name="author" content="Home Care Harmony" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@HomeCareIndia" />
-    <meta name="twitter:image" content="/india-og.svg" />
-  </head>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Home Care Harmony" />
+  <meta property="og:description" content="Home Care products crafted for India — sustainable, affordable, reliable." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/india-og.svg" />
 
-  <body>
-    <div id="root"></div>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@HomeCareIndia" />
+  <meta name="twitter:image" content="/india-og.svg" />
+</head>
+
+<body>
+    <div id="root">
+      <style>
+        .preloader {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: #F8FAF7;
+          z-index: 9999;
+          font-family: system-ui, -apple-system, sans-serif;
+        }
+        .preloader-logo {
+          width: 70px;
+          height: 70px;
+          margin-bottom: 0.75rem;
+          animation: pulse 1.5s ease-in-out infinite;
+        }
+        .preloader-text {
+          font-weight: 600;
+          color: #111827;
+          letter-spacing: 0.05em;
+          font-size: 1rem;
+          opacity: 0.8;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(0.95); opacity: 0.8; }
+          50% { transform: scale(1.04); opacity: 1; }
+        }
+      </style>
+      <div class="preloader">
+        <img src="/logo.svg" alt="Loading" class="preloader-logo" />
+        <div class="preloader-text">Home Care Harmony</div>
+      </div>
+    </div>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

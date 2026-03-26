@@ -45,7 +45,33 @@ firebase deploy
 
 ---
 
-## ✅ Post-Deployment Checks
-- Once complete, Firebase will display a **Hosting URL** (e.g., `https://your-project.web.app`).
-- Opening that URL will load your beautiful new glassmorphism site connected to **Supabase**.
-- Any `/api/create-order` or verification posts triggered on Checkout will automatically proxy through to Cloud Functions flawlessly!
+## 🚀 Option A: Deploying via Firebase (Standard)
+*Follow instructions above for Full Firebase hosting + Functions setup*
+
+---
+
+## 🚀 Option B: Deploying via Supabase Edge Functions (Best for Stack Sync)
+
+Alternatively, if you want to keep your **Razorpay API** running inside your **Supabase Backend** (Deno Edge Functions), run these commands:
+
+### 1. Link your Supabase Project
+```bash
+npx supabase link --project-ref YOUR_PROJECT_REF
+```
+*(Find your Project Ref in Supabase Dashboard -> Project Settings)*
+
+### 2. Set Razorpay Secrets in Supabase Vault
+```bash
+npx supabase secrets set RAZORPAY_KEY_ID="YOUR_KEY" RAZORPAY_KEY_SECRET="YOUR_SECRET"
+```
+
+### 3. Deploy functions
+```bash
+npx supabase functions deploy create-razorpay-order --no-verify-jwt
+npx supabase functions deploy verify-razorpay-payment --no-verify-jwt
+```
+
+---
+
+## ✅ Verification
+Regardless of Option A or B, once your deployment pushes, checking out with Razorpay will route flawlessly securely without leaking secret credentials.

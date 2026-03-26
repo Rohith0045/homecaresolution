@@ -1,5 +1,8 @@
 const functions = require("firebase-functions");
 const express = require("express");
+const dotenv = require("dotenv");
+
+dotenv.config();
 const cors = require("cors");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");

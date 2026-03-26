@@ -4,7 +4,7 @@ import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
 import { Language } from "@/data/translations";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
@@ -13,6 +13,22 @@ const Header = () => {
   const { user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        if (!mobileOpen) setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, mobileOpen]);
 
   const languages: { code: Language; name: string }[] = [
     { code: 'en', name: 'English' },
@@ -29,7 +45,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl glass rounded-2xl shadow-elevated transition-all duration-300">
+    <header className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl glass rounded-2xl shadow-elevated transition-all duration-300 ${visible ? "translate-y-0" : "-translate-y-28 opacity-0"}`}>
       <div className="container mx-auto px-6 flex items-center justify-between h-16 md:h-16">
         <Link to="/" className="flex items-center gap-2 flex-shrink-0 group">
           <div className="w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
@@ -112,7 +128,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -15, scale: 0.95 }}
                   transition={{ duration: 0.25, type: "spring", stiffness: 300, damping: 20 }}
-                  className="absolute right-0 mt-2 bg-card border border-border rounded-lg shadow-elevated z-50 min-w-max overflow-hidden"
+                  className="absolute right-0 mt-3 glass border border-border/30 rounded-xl shadow-elevated z-50 min-w-max overflow-hidden p-1 px-1"
                 >
                   {languages.map((lang, idx) => (
                     <motion.button
@@ -121,10 +137,10 @@ const Header = () => {
                         setLanguage(lang.code);
                         setLangMenuOpen(false);
                       }}
-                      className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors relative ${
+                      className={`block w-full text-left px-4 py-2 text-sm font-medium rounded-lg transition-colors relative ${
                         language === lang.code
                           ? 'bg-primary text-primary-foreground'
-                          : 'text-foreground hover:bg-secondary'
+                          : 'text-foreground hover:bg-primary/10'
                       }`}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -187,20 +203,36 @@ const Header = () => {
           )}
         </nav>
 
-        <motion.button
-          className="md:hidden p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
+        <div className="flex items-center gap-1 md:hidden">
           <motion.div
-            animate={{ rotate: mobileOpen ? 90 : 0 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <Link to="/cart" className="relative p-2 hover:bg-secondary rounded-full transition-colors block">
+              <ShoppingCart className="w-5 h-5 text-foreground" />
+              {totalItems > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-primary text-primary-foreground text-xs font-bold rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
           </motion.div>
-        </motion.button>
+
+          <motion.button
+            className="p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <motion.div
+              animate={{ rotate: mobileOpen ? 90 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </motion.div>
+          </motion.button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -210,7 +242,7 @@ const Header = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden border-t border-border bg-card"
+            className="md:hidden overflow-hidden border-t border-border/20 glass rounded-b-2xl mt-1 px-2"
           >
             <nav className="flex flex-col p-4 gap-3">
               {navLinks.map((link, index) => (
@@ -222,13 +254,38 @@ const Header = () => {
                 >
                   <Link
                     to={link.to}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary py-2 block"
+                    className="text-sm font-medium text-foreground hover:text-primary py-2 block"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
+
+              <div className="h-px bg-border/20 my-2" />
+              
+              <div>
+                <p className="text-xs font-bold text-muted-foreground uppercase px-2 mb-2">Language</p>
+                <div className="flex flex-wrap gap-2 px-2">
+                  {languages.map(lang => (
+                    <button 
+                      key={lang.code}
+                      onClick={() => { setLanguage(lang.code); setMobileOpen(false); }} 
+                      className={`px-3 py-1.5 text-xs font-medium rounded-full border border-border/30 ${language === lang.code ? 'bg-primary text-primary-foreground' : 'glass text-foreground'}`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-4 px-2">
+                {!user ? (
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className="block text-center w-full py-2.5 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:bg-forest transition-colors">Login</Link>
+                ) : (
+                  <button onClick={() => { logout(); setMobileOpen(false); }} className="w-full py-2.5 bg-secondary text-foreground rounded-xl text-sm font-semibold hover:bg-destructive/10 transition-colors">Logout</button>
+                )}
+              </div>
             </nav>
           </motion.div>
         )}

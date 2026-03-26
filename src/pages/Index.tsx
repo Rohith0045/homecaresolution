@@ -3,7 +3,6 @@ import HeroBannerCarousel from "@/components/HeroBannerCarousel";
 import CategoryGrid from "@/components/CategoryGrid";
 import ProductCarousel from "@/components/ProductCarousel";
 import CompanyMap from "@/components/CompanyMap";
-import Newsletter from "@/components/Newsletter";
 import SustainabilitySection from "@/components/SustainabilitySection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -63,7 +62,6 @@ const Index = () => {
       />
 
       <CompanyMap />
-      <Newsletter />
       <Footer />
     </div>
   );

@@ -104,7 +104,7 @@ const Products = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="md:ml-auto px-4 py-2 rounded-lg border border-border bg-card text-foreground text-sm"
+            className="md:ml-auto px-4 py-2 rounded-xl border border-border/40 glass text-foreground text-sm cursor-pointer shadow-sm focus:outline-none"
           >
             <option value="popular">{t('products.sortPopular')}</option>
             <option value="rating">{t('products.sortRated')}</option>

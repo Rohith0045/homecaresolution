@@ -2,7 +2,7 @@ import { products as defaultProducts, type Product as DefaultProduct } from "@/d
 
 export type Product = DefaultProduct & Partial<Record<string, any>>;
 
-const LS_KEY = "admin_products";
+const LS_KEY = "admin_products_v2";
 
 function readAdmin(): Product[] {
   try {

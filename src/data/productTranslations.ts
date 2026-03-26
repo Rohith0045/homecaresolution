@@ -3,56 +3,56 @@ import { Language } from './translations';
 export const productTranslations = {
   en: {
     // Product 1
-    'prod1.name': 'EcoClean Kitchen Degreaser',
-    'prod1.desc': 'Powerful plant-based degreaser that cuts through grease without harsh chemicals.',
-    'prod1.longDesc': 'Our EcoClean Kitchen Degreaser is formulated with plant-derived surfactants and essential oils to effortlessly cut through grease, grime, and food residue. Safe for all kitchen surfaces including granite, marble, stainless steel, and ceramic. The citrus-fresh scent leaves your kitchen smelling naturally clean.',
+    'prod1.name': 'P&P Lemon Dish Wash Gel',
+    'prod1.desc': 'Antibacterial formula dish wash gel for sparkling clean dishes.',
+    'prod1.longDesc': 'Pure & Perfect Lemon Dish Wash Gel features an antibacterial formula with a fresh lemon scent. It cuts through tough grease instantly, providing premium quality cleaning for all your pots, pans, and daily dishes while remaining gentle on your hands.',
     'prod1.badge': 'Best Seller',
-    'prod1.usage': 'Spray directly on surface, let sit for 30 seconds, wipe with a clean cloth. For tough stains, let sit for 2-3 minutes.',
+    'prod1.usage': 'Use a few drops on a wet sponge to wash dishes as usual.',
     
     // Product 2
-    'prod2.name': 'PureShine Bathroom Cleaner',
-    'prod2.desc': 'Eliminates soap scum and hard water stains with a refreshing eucalyptus scent.',
-    'prod2.longDesc': 'PureShine Bathroom Cleaner tackles soap scum, hard water stains, and mildew with the power of natural eucalyptus and tea tree oils. Our formula is free from chlorine bleach and phosphates, making it safe for your family and the environment.',
+    'prod2.name': 'P&P Herbal Phenyl',
+    'prod2.desc': 'Concentrated floor disinfectant that cleans and freshens.',
+    'prod2.longDesc': 'P&P Herbal Phenyl provides 2X better results for floor cleaning. It is a concentrated disinfectant that cleans, disinfects, and removes stains while leaving a fresh, long-lasting aroma in your home.',
     'prod2.badge': 'Eco Certified',
-    'prod2.usage': 'Spray on bathroom surfaces, wait 1-2 minutes, scrub if needed, rinse with water.',
+    'prod2.usage': 'Dilute in water and mop the floor. Suitable for daily use.',
     
     // Product 3
-    'prod3.name': 'NatureFresh Floor Solution',
-    'prod3.desc': 'All-purpose floor cleaner for hardwood, tile, and laminate surfaces.',
-    'prod3.longDesc': 'NatureFresh Floor Solution gently cleans and protects all types of flooring. Its pH-balanced, plant-based formula won\'t strip finishes or leave residue. Leaves floors sparkling clean with a subtle lavender scent.',
-    'prod3.usage': 'Dilute 2 caps in a bucket of warm water. Mop as usual. No rinsing needed.',
+    'prod3.name': 'P&P Heavy Duty Bathroom Tiles Cleaner',
+    'prod3.desc': 'Powerful, rapid-acting formula for removing tough bathroom stains.',
+    'prod3.longDesc': 'Our Heavy Duty Bathroom Tiles Cleaner is designed for premium quality cleaning. Its powerful, rapid-acting formula easily removes residues, efflorescence, and oxide stains from all bathroom tiles, leaving them sparkling.',
+    'prod3.usage': 'Apply directly to tiles, leave for a few minutes, scrub and rinse.',
     
     // Product 4
-    'prod4.name': 'GreenWash Laundry Detergent',
-    'prod4.desc': 'Concentrated plant-based detergent that\'s tough on stains, gentle on fabrics.',
-    'prod4.longDesc': 'GreenWash delivers powerful cleaning in a concentrated, eco-friendly formula. Each bottle provides 64 loads of fresh, clean laundry. Free from synthetic fragrances, dyes, and optical brighteners.',
+    'prod4.name': 'P&P 3-in-1 Toilet Cleaner',
+    'prod4.desc': 'Heavy duty toilet cleaner that kills 99.9% of virus and bacteria.',
+    'prod4.longDesc': 'P&P 3-in-1 Toilet Cleaner provides clean and fresh results. Its heavy-duty action formula kills germs, ensures freshness, and acts as a powerful stain remover for a spotless toilet bowl.',
     'prod4.badge': 'Top Rated',
-    'prod4.usage': 'Use 1 cap for regular loads, 2 caps for heavily soiled items. Works in all water temperatures.',
+    'prod4.usage': 'Apply under the rim, leave for 20 minutes, brush lightly and flush.',
     
     // Product 5
-    'prod5.name': 'PureHands Foaming Wash',
-    'prod5.desc': 'Gentle, moisturizing hand wash with aloe vera and chamomile.',
-    'prod5.longDesc': 'PureHands Foaming Wash combines effective antibacterial protection with skin-nourishing botanicals. The luxurious foam lathers richly while aloe vera and chamomile keep hands soft and hydrated.',
-    'prod5.usage': 'Pump foam onto wet hands, lather for 20 seconds, rinse thoroughly.',
+    'prod5.name': 'P&P Lemon Hand Wash (5Kg)',
+    'prod5.desc': 'Soft on hands, fights germs, pH balanced bulk hand wash.',
+    'prod5.longDesc': 'Our Bulk 5Kg Lemon Hand Wash is perfect for commercial or extensive home use. It kills 99.9% of germs while remaining soft on your hands with a pH balanced formulation and an invigorating lemon scent.',
+    'prod5.usage': 'Pump onto wet hands, lather, and rinse thoroughly.',
     
     // Product 6
-    'prod6.name': 'EcoScrub Bamboo Brush Set',
-    'prod6.desc': 'Set of 3 durable bamboo brushes for kitchen, bathroom, and general cleaning.',
-    'prod6.longDesc': 'Our EcoScrub Bamboo Brush Set includes three sustainably sourced bamboo brushes designed for different cleaning tasks. The natural bristles are firm yet gentle, and the ergonomic handles provide comfortable grip.',
-    'prod6.badge': 'Eco Pack',
-    'prod6.usage': 'Use with your favorite cleaning solution. Rinse after use and allow to air dry.',
+    'prod6.name': 'P&P Copbraz Copper & Brass Cleaner',
+    'prod6.desc': 'Instant cleaner for tarnish, oxidation, and fire scale.',
+    'prod6.longDesc': 'P&P Copbraz is an instant copper and brass cleaner that effortlessly brings back the original shine. It effectively removes tarnish, oxidation, and fire scale from your pooja items and household brassware.',
+    'prod6.badge': 'Best Seller',
+    'prod6.usage': 'Apply to brass/copper items, wipe gently with a soft cloth.',
     
     // Product 7
-    'prod7.name': 'CitrusBurst Dish Soap',
-    'prod7.desc': 'Concentrated dish soap with real lemon extract for sparkling dishes.',
-    'prod7.longDesc': 'CitrusBurst Dish Soap uses real lemon and orange extracts to cut through grease while being gentle on your hands. A small amount goes a long way with our 4x concentrated formula.',
-    'prod7.usage': 'Apply a few drops to a wet sponge. Lather and wash dishes as usual.',
+    'prod7.name': 'P&P Oil Stain Cleaner',
+    'prod7.desc': 'Heavy duty oil stain remover for kitchen floors and service stations.',
+    'prod7.longDesc': 'P&P Oil Stain Cleaner is built for the toughest grease. Ideal for kitchen floors, temples, hotels, and even car/bike service stations. It effortlessly lifts heavy oil stains from porous and non-porous surfaces.',
+    'prod7.usage': 'Apply to stained area, let sit, agitate with a brush, and wipe clean.',
     
     // Product 8
-    'prod8.name': 'FreshAir Fabric Softener',
-    'prod8.desc': 'Plant-based fabric softener with a delicate floral scent.',
-    'prod8.longDesc': 'FreshAir Fabric Softener uses plant-derived softening agents to leave clothes feeling incredibly soft and static-free. The gentle floral scent is derived from real flower extracts.',
-    'prod8.usage': 'Add during the rinse cycle. Use 1 cap for regular loads.',
+    'prod8.name': 'P&P Advance 5-in-1 Glass Cleaner',
+    'prod8.desc': 'Multi-purpose cleaner for glass, laptops, tables, and TVs.',
+    'prod8.longDesc': 'P&P Advance 5-in-1 Glass Cleaner gives a streak-free shine. It is perfectly formulated for glass cleaning, table cleaning, laptop screens, TV washing, and wardrobe cleaning in an economical 5Kg pack.',
+    'prod8.usage': 'Spray onto surface and wipe with a clean microfiber cloth.',
   },
   ta: {
     // Product 1 - TAMIL
@@ -162,7 +162,8 @@ export const productTranslations = {
   }
 };
 
-export const getProductTranslation = (key: string, language: string): string => {
+export const getProductTranslation = (key: string, language: string, fallback?: string): string => {
   const translations = productTranslations[language as keyof typeof productTranslations];
-  return (translations[key as keyof typeof translations] as string) || productTranslations.en[key as keyof typeof productTranslations.en] || key;
+  const translated = (translations[key as keyof typeof translations] as string) || (productTranslations.en[key as keyof typeof productTranslations.en] as string);
+  return translated || fallback || key;
 };
